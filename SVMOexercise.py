@@ -20,19 +20,19 @@ reg_normal = SVC(kernel='linear')
 X_train, X_test, y_train, y_test = train_test_split(digits.data, digits.target, test_size=0.2, random_state=2)
 
 reg_normal.fit(X_train, y_train)
-print(reg_normal.score(X_train, y_train))
+print(reg_normal.score(X_test, y_test))
 
 
 for i in range(1,10):
     reg_gamma = SVC(gamma=i)
     reg_gamma.fit(X_train, y_train)
-    a = reg_gamma.score(X_train, y_train)
+    a = reg_gamma.score(X_test, y_test)
     print('scores: {}'.format(a))
 
 for i in range(1,10):
     reg_C = SVC(C=i)
     reg_C.fit(X_train, y_train)
-    a = reg_C.score(X_train, y_train)
+    a = reg_C.score(X_test, y_test)
     print('scores: {}'.format(a))
 
 
